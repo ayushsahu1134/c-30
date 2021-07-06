@@ -6,10 +6,13 @@ const Constraint = Matter.Constraint;
 var engine, world;
 var box1, pig1;
 var backgroundImg ;
+var log6;
+var slingshot;
 function preload(){    backgroundImg = loadImage("sprites/bg.png");
 }
 function setup(){
     var canvas = createCanvas(1200,400);
+
     engine = Engine.create();
     world = engine.world;
 
@@ -20,7 +23,7 @@ function setup(){
     box2 = new Box(920,320,70,70);
     pig1 = new Pig(810, 350);
     log1 = new Log(810,260,300, PI/2);
-
+log6=new Log(230,180,80,PI/2);
    
     glass1 = new Glass(700, 240, 50, 50);
     glass2 = new Glass(920, 240, 50, 50);
@@ -35,6 +38,7 @@ function setup(){
     log5 = new Log(870,120,150, -PI/7);
 
     bird = new Bird(100,100);
+    slingshot=new SlingShot(bird.body,log6.body)
 
 }
 
@@ -51,6 +55,7 @@ function draw(){
     ground.display();
     pig1.display();
     log1.display();
+    log6.display();
     platform.display();
 
     glass1.display();
@@ -66,4 +71,5 @@ function draw(){
     log5.display();
 
     bird.display();
+    slingshot.display();
 }
